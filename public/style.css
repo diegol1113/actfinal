@@ -1,5 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body{
-    background-color: black;
-    background-image: url(../multimedia/estructurales/background.png);
-    background-size: 400px;
+    background-image: url(../../actfinal/multimedia/nosotros/68.jpg);
+    background-color: #ea8bcf;
+    width: 100%;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.texto-navbar-submenu{
+    font-size: 1.5em;
+}
+
+.borde-navbar{
+    border: none;
+}
+
+.footer-h{
+    height: 1.3em;
 }
