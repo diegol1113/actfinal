@@ -10,6 +10,13 @@ body{
 .ico{
     width: 4.5em;
 }
+
+.nav-pos{
+    position: sticky;
+    top: 0;
+    z-index: 100000;
+}
+
 .texto-navbar-submenu{
     font-size: 1.5em;
 }

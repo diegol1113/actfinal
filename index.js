@@ -10,20 +10,21 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use('/public', express.static('public'))
 
-
-/*const conexion =  mysql.createConnection({
+/*
+CONEXIÓN A BASE DE DATOS LOCAL
+const conexion =  mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
     password: "GarabatO3331",
-    database: "metahapaxcontacto",
+    database:  "metahapaxcontacto",
 });
 
 conexion.connect((error) =>{
     if(error) throw error;
     console.log('Data Base Conectada.');
-}); */
-
+});
+*/
 
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
