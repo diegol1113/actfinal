@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-const Port = 8080;
+//const Port = 8080;
 const path = require('path');
 const hbs = require('hbs');
-//Traemos la librería para la conexión
 const mysql = require('mysql2');
+const port = process.env.PORT;
 
+
+require('dotenv').config();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use('/public', express.static('public'))
@@ -21,12 +23,10 @@ const conexion =  mysql.createConnection({
 
 conexion.connect((error) =>{
     if(error) throw error;
-    console.log('Conexión a la Data Base exitosa!!');
+    console.log('Data Base Conectada.');
 });
 
 
-
-//Configuramos el Motor de Plantillas
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
@@ -43,69 +43,47 @@ app.get('/contactanos', (req, res) =>{
     res.render('contactanos')
 });
 
-app.post('/formulario', (req, res) =>{
+app.post('/contactanos', (req, res) =>{
 
     //Desestructuración de las variables
-    const { nombre, precio, descripcion } = req.body;
+    const { fechaDeContacto, nombre, apellido, tipoDeContacto, institucion, telefono, mailDeContacto } = req.body;
+    if(nombre == "" || apellido == "" || tipoDeContacto == "" || telefono == "" || mailDeContacto == ""){
         
-    if(nombre == "" || precio == ""){
+        let validacion = 'Formulario incompleto';
         
-        let validacion = 'Faltan datos para guardar el Producto';
+        res.render('contactanos', {validacion});
+}else{
+
+        console.log(fechaDeContacto);
+        console.log(nombre);
+        console.log(apellido);
+        console.log(tipoDeContacto);
+        console.log(institucion);
+        console.log(telefono);
+        console.log(mailDeContacto);
         
-        res.render('formulario', {
-            titulo: 'Formulario para Completar',
-            validacion
+        let data = {
+            fechaDeContacto: fechaDeContacto,
+            nombre: nombre, 
+            apellido: apellido,
+            tipoDeContacto: tipoDeContacto,
+            institucion: institucion,
+            telefono: telefono,
+            mailDeContacto: mailDeContacto
+        }
+        let sql = 'Insert into contacto set ?';
+
+        conexion.query(sql, data, (error, results) => {
+            if(error) throw error;
+            res.render('index')
         });
 
-    }else{
-
-        console.log(nombre);
-        console.log(precio);
-        console.log(descripcion);
-
-        //Insertar datos a la DB
-        let data = {
-            producto_nombre: nombre, 
-            producto_precio: precio,
-            producto_descripcion: descripcion
-        }
-
-        let sql = 'Insert into productos set ?';
-
-        conexion.query(sql, data, (error, results) =>{
-            if(error) throw error;
-            res.render('/', {
-            
-            }); 
-        })
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.get('/merch', (req, res) =>{
-    res.render('merch')
+app.get('/prensa', (req, res) =>{
+    res.render('prensa')
 });
-
-
-//conexion.end();
-
-
-
 app.listen(Port, () => {
     console.log('el servidor es ' + Port);
 });

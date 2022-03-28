@@ -3,20 +3,75 @@
     padding: 0;
 }
 body{
-    background-image: url(../../actfinal/multimedia/nosotros/68.jpg);
+    background-image: url(https://i.ibb.co/100Gmyc/background.png);
     background-color: #ea8bcf;
-    width: 100%;
     font-family: 'Bebas Neue', cursive;
 }
-
+.ico{
+    width: 4.5em;
+}
 .texto-navbar-submenu{
     font-size: 1.5em;
 }
-
 .borde-navbar{
     border: none;
 }
-
 .footer-h{
     height: 1.3em;
+}
+.img-proximas-fechas{
+    width: 500px;
+}
+.flyercontainer{
+    display: flex;
+    margin: auto;
+    width: fit-content;
+    border: #000 .7vw solid;
+    background-color: #000;
+    background-size: contain;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    text-align: center;
+}
+.flyer{
+    margin: auto;
+    width: 500px;
+}
+.linkPago{
+    width:100%;
+    text-align: center;
+    font-size: 3.1em;
+    text-decoration: none;
+    background-color: #000;
+    color: #bbb;
+}
+
+.text-formulario{
+    font-size: 1.3em;
+}
+
+.h-text{
+    font-size: 4.5em;
+}
+
+.p-text{
+    font-size: 2.1em;
+}
+
+.p-text-prensa{
+    font-size: 1.3em;
+}
+
+
+#navBarFechas{
+    display: inline;
+}
+@media screen and (max-width: 525px) {
+#navBarFechas{ display:none;
+}}
+
+@media screen and (max-width: 525px) {
+    .text-formulario{
+        font-size: 8em;
+    }
 }
