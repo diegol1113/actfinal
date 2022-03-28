@@ -10,7 +10,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use('/public', express.static('public'))
 
-
 //CONEXIÓN A BASE DE DATOS LOCAL
 /*const conexion =  mysql.createConnection({
     host: "localhost",
@@ -25,7 +24,6 @@ conexion.connect((error) =>{
     console.log('Data Base Conectada.');
 });*/
 
-
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
@@ -33,10 +31,6 @@ hbs.registerPartials(path.join(__dirname, '/views/partials'));
 app.get('/', (req, res) =>{
     res.render('index')
 });
-
-
-
-
 
 app.get('/contactanos', (req, res) =>{
     res.render('contactanos')
