@@ -1,8 +1,3 @@
-Buenas, paso mi entrega final. El script y el DER de la base de datos están en el repo pero no conecte el formulario porque no tengo tarjeta, deje comentado lo correspondiente a la conexión.
-Repositorio github: https://github.com/diegol1113/actfinal
-Deploy en heroku: https://app-final-cornago.herokuapp.com
-
-
 Nombre: Diego José.
 Apellido: Cornago.
 
