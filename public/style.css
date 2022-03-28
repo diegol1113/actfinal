@@ -50,6 +50,10 @@ body{
     font-size: 1.3em;
 }
 
+.text-formulario-drop-menu{
+    font-size: .9em;
+}
+
 .h-text{
     font-size: 4.5em;
 }
@@ -66,12 +70,7 @@ body{
 #navBarFechas{
     display: inline;
 }
+
 @media screen and (max-width: 525px) {
 #navBarFechas{ display:none;
 }}
-
-@media screen and (max-width: 525px) {
-    .text-formulario{
-        font-size: 8em;
-    }
-}

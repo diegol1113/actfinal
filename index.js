@@ -1,11 +1,10 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-//const Port = 8080;
 const path = require('path');
 const hbs = require('hbs');
 const mysql = require('mysql2');
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
