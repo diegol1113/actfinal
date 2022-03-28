@@ -1,19 +1,18 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 //const Port = 8080;
 const path = require('path');
 const hbs = require('hbs');
 const mysql = require('mysql2');
-const port = process.env.PORT;
+const PORT = process.env.PORT;
 
-
-require('dotenv').config();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use('/public', express.static('public'))
 
 
-const conexion =  mysql.createConnection({
+/*const conexion =  mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
@@ -24,7 +23,7 @@ const conexion =  mysql.createConnection({
 conexion.connect((error) =>{
     if(error) throw error;
     console.log('Data Base Conectada.');
-});
+}); */
 
 
 app.set('view engine', 'hbs');
@@ -84,8 +83,8 @@ app.post('/contactanos', (req, res) =>{
 app.get('/prensa', (req, res) =>{
     res.render('prensa')
 });
-app.listen(Port, () => {
-    console.log('el servidor es ' + Port);
+app.listen(PORT, () => {
+    console.log('el servidor es ' + PORT);
 });
 app.on('error', (err) =>{
     console.log(`Error en la ejecución del Servidor ${error}`);
